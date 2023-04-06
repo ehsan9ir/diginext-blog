@@ -17,6 +17,10 @@ return new class extends Migration
             if(Schema::hasColumn('posts', 'body')) {
                 $table->dropColumn(['body']);
             }
+            if(Schema::hasColumn('posts', 'author_id')) {
+                $table->dropColumn(['author_id']);
+                $table->foreignId('user_id')->nullable()->after('category_id')->references('id')->on('users');
+            }
             if(!Schema::hasColumn('posts', 'content')) {
                 $table->text('content')->after('title');
             }

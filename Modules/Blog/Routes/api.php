@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Modules\Blog\Http\Controllers\V1\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/blog', function (Request $request) {
-    return $request->user();
-});
+Route::apiResource('post', PostController::class)->only(['store', 'show']);
