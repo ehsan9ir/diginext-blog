@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        if (!Schema::hasColumn('applications', 'app_category_id')) {
+        if (!Schema::hasColumn('users', 'username')) {
             Schema::table('users', function (Blueprint $table) {
                 $table->string('username', 120)->after('email')->nullable()->unique();
+                $table->string('name')->nullable()->change();
+                $table->string('password')->nullable()->change();
+                $table->string('email')->nullable()->change();
             });
         }
     }
@@ -28,7 +31,9 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-
+            if (Schema::hasColumn('users', 'username')) {
+                $table->dropColumn(['username']);
+            }
         });
     }
 };
