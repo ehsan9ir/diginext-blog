@@ -18,7 +18,7 @@ class VideoController extends Controller
     public function store(VideoStoreRequest $request): \Illuminate\Http\JsonResponse
     {
         return apiResponse()->respond(
-            Video::create($request->validated(), Response::HTTP_CREATED)
+            Video::create($request->validated()), Response::HTTP_CREATED
         );
     }
 
