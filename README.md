@@ -1,66 +1,69 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Diginext Blog, Back-end Interview
+**The project is Laravel back-end service for a simple blog for diginext interview task**
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Project setup with [Laravel Sail](https://laravel.com/docs/8.x/sail) for local dev environment :
 
-## About Laravel
+1. Docker is installed in your system. If it is not installed according to the document, install Docker
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+2. Clone the repo and navigate to the directory
+```shell
+git clone https://github.com/ehsan9ir/diginext-blog.git
+cd diginext-blog
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+3. Copy the sample .env file
+```shell
+cp .env.example .env
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+4. Enter the following command in the terminal to run project
+    ```sh
+   composer install
+   ./vendor/bin/sail -f docker-compose-dev-sail.yml up -d
+    ```
 
-## Learning Laravel
+5. Database tasks
+    1. To launch the project database, enter the following command in the terminal.
+       ```
+       ./vendor/bin/sail artisan migrate --force --seed
+        ```
+    2. phpmyadmin display link address :
+       ```
+       http://localhost:8081/
+        ```
+    3. Login information to the database :
+       ```
+        Server   :  db 
+        Username :  next_admin
+        Password :  admin123456
+        ```
+----
+<span style="color:red">
+The process of downloading Docker images due to sanctions and internet speed may be very slow or you may encounter various errors.
+<br>
+Use good stable vpn or the DNS iranian services
+</span>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+[Begzar](https://begzar.ir/)
+or
+[Shecan](https://shecan.ir/)
+----
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Note
+At the end of 2020, [Taylor Otwell](https://github.com/taylorotwell) released a package by the name of [Laravel Sail](https://laravel.com/docs/8.x/sail) that helps you get right into development without having to do any configuring of Docker.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Build command for development environment
 
-## Laravel Sponsors
+```shell
+./vendor/bin/sail -f docker-compose-dev-sail.yml build
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+----
+If the docker ports are busy, you can change the system ports in the .env file
+For example, the :
+```.dotenv
+APP_PORT=81
+```
+finally, you must up again docker-compose-dev-sail.yml
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
