@@ -28,10 +28,6 @@ class PostController extends Controller
      */
     public function show(Post $post): \Illuminate\Http\JsonResponse
     {
-        $post->comments()->create([
-            'user_id' => 3,
-            'text' => 'salam',
-        ]);
         return apiResponse()->respond($post);
     }
 }
