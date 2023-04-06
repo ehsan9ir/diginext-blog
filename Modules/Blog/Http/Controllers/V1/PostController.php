@@ -5,7 +5,7 @@ namespace Modules\Blog\Http\Controllers\V1;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Blog\Entities\Post;
-use Modules\Blog\Http\Requests\PostCommentStoreRequest;
+use Modules\Blog\Http\Requests\CommentStoreRequest;
 use Modules\Blog\Http\Requests\PostStorerequest;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -35,10 +35,10 @@ class PostController extends Controller
 
     /**
      * @param Post $post
-     * @param PostCommentStoreRequest $request
+     * @param CommentStoreRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function storeComment(Post $post, PostCommentStoreRequest $request): \Illuminate\Http\JsonResponse
+    public function storeComment(Post $post, CommentStoreRequest $request): \Illuminate\Http\JsonResponse
     {
         return apiResponse()->respond(
             $post->comments()->create($request->validated()),
