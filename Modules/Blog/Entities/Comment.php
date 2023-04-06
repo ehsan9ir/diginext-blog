@@ -12,6 +12,7 @@ class Comment extends Model
 
     protected $guarded = ['id'];
     protected $appends = ['username'];
+    protected $hidden = ['sourceable_type', 'sourceable_id'];
     protected $with = [];
 
     protected static function newFactory()

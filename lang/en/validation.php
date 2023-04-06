@@ -212,6 +212,7 @@ return [
         'updated_at'               => 'updated at',
         'username'                 => 'username',
         'user'                     => 'user',
+        'video'                    => 'video',
         'year'                     => 'year',
     ],
 ];

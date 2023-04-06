@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Modules\Blog\Http\Controllers\V1\PostController;
+use Modules\Blog\Http\Controllers\V1\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::group(['middleware' => 'has.userId'], function (){
 });
 
 Route::get('post/{post}', [PostController::class, 'show']);
+Route::get('video/{video}', [VideoController::class, 'show']);
