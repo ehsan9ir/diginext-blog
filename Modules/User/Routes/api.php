@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Modules\User\Http\Controllers\V1\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return response([
-        'The User Module'
-    ]);
-});
+
+Route::apiResource('user', UserController::class)->only('show', 'store');
+
