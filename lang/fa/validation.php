@@ -186,6 +186,7 @@ return [
         'phone'                    => 'شماره ثابت',
         'photo'                    => 'تصویر',
         'postal_code'              => 'کد پستی',
+        'post'                     => 'پُست',
         'price'                    => 'قیمت',
         'province'                 => 'استان',
         'recaptcha_response_field' => 'فیلد جواب ریکپچا',
@@ -212,6 +213,8 @@ return [
         'updated_at'               => 'بروزشده در',
         'username'                 => 'نام کاربری',
         'user'                     => 'کاربر',
+        'url'                     => 'لینک',
+        'video'                    => 'فیلم',
         'year'                     => 'سال',
     ],
 ];
