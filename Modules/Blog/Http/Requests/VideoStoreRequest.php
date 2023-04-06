@@ -3,6 +3,7 @@
 namespace Modules\Blog\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Modules\User\Entities\User;
 
 class VideoStoreRequest extends FormRequest
@@ -14,10 +15,12 @@ class VideoStoreRequest extends FormRequest
      */
     public function rules()
     {
+        $regex = '/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/';
+
         return [
             'user_id' => 'required|integer|exists:users,id',
             'title' => 'required|string|max:240|min:5',
-            'url' => 'required|url|max:240|min:10',
+            'url' => ['required', 'max:240', 'min:10', "regex:$regex"],
         ];
     }
 
