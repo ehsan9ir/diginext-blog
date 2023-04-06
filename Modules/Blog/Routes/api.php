@@ -18,6 +18,7 @@ use Modules\Blog\Http\Controllers\V1\VideoController;
 
 Route::group(['middleware' => 'has.userId'], function (){
     Route::post('post', [PostController::class, 'store']);
+    Route::post('video', [VideoController::class, 'store']);
 });
 
 Route::get('post/{post}', [PostController::class, 'show']);
