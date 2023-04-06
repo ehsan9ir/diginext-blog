@@ -19,7 +19,7 @@ class PostController extends Controller
     public function store(PostStorerequest $request): \Illuminate\Http\JsonResponse
     {
         return apiResponse()->respond(
-            Post::create($request->validated(), Response::HTTP_CREATED)
+            Post::create($request->validated()), Response::HTTP_CREATED
         );
     }
 
