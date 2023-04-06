@@ -15,4 +15,8 @@ use Modules\Blog\Http\Controllers\V1\PostController;
 |
 */
 
-Route::apiResource('post', PostController::class)->only(['store', 'show']);
+Route::group(['middleware' => 'has.userId'], function (){
+    Route::post('post', [PostController::class, 'store']);
+});
+
+Route::get('post/{post}', [PostController::class, 'show']);

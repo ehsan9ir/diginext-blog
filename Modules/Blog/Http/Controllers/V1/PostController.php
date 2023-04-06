@@ -5,6 +5,7 @@ namespace Modules\Blog\Http\Controllers\V1;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Blog\Entities\Post;
+use Modules\Blog\Http\Requests\PostStorerequest;
 
 class PostController extends Controller
 {
@@ -13,9 +14,11 @@ class PostController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(PostStorerequest $request)
     {
-
+        return apiResponse()->respond(
+            Post::create($request->validated())
+        );
     }
 
     /**
@@ -25,6 +28,11 @@ class PostController extends Controller
      */
     public function show(Post $post): \Illuminate\Http\JsonResponse
     {
+//        $post = Post::query()->find($post->id);
+        $post->comments()->create([
+            'user_id' => 3,
+            'text' => 'salam',
+        ]);
         return apiResponse()->respond($post);
     }
 }
