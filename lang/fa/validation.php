@@ -186,6 +186,7 @@ return [
         'phone'                    => 'شماره ثابت',
         'photo'                    => 'تصویر',
         'postal_code'              => 'کد پستی',
+        'post'                     => 'پُست',
         'price'                    => 'قیمت',
         'province'                 => 'استان',
         'recaptcha_response_field' => 'فیلد جواب ریکپچا',

@@ -186,6 +186,7 @@ return [
         'phone'                    => 'phone',
         'photo'                    => 'photo',
         'postal_code'              => 'postal code',
+        'post'                     => 'post',
         'price'                    => 'price',
         'province'                 => 'province',
         'recaptcha_response_field' => 'recaptcha response field',
