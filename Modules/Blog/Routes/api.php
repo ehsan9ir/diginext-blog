@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Modules\Blog\Http\Controllers\V1\PostController;
 use Modules\Blog\Http\Controllers\V1\VideoController;
@@ -21,6 +20,7 @@ Route::group(['middleware' => 'has.userId'], function (){
     Route::post('video', [VideoController::class, 'store']);
 
     Route::post('post/{post}/comment', [PostController::class, 'storeComment']);
+    Route::post('video/{video}/comment', [VideoController::class, 'storeComment']);
 });
 
 Route::get('post/{post}', [PostController::class, 'show']);
