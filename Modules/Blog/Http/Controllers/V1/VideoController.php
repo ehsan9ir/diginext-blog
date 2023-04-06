@@ -2,9 +2,7 @@
 
 namespace Modules\Blog\Http\Controllers\V1;
 
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\Video;
 use Modules\Blog\Http\Requests\VideoStoreRequest;
 
