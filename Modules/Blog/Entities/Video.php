@@ -15,4 +15,9 @@ class Video extends Model
     {
         return \Modules\Blog\Database\factories\VideoFactory::new();
     }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'sourceable');
+    }
 }
