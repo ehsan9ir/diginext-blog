@@ -1,6 +1,46 @@
 # Diginext Blog, Back-end Interview
 **The project is Laravel back-end service for a simple blog for diginext interview task**
 
+## Project setup with [Docker](https://docs.docker.com/) for production environment:
+
+1. Docker is installed in your system. If it is not installed according to the document, install Docker
+
+2. Clone the repo and navigate to the directory
+```shell
+git clone https://github.com/ehsan9ir/diginext-blog.git
+cd diginext-blog
+```
+
+3. Enter the following command in the terminal to run project
+    ```
+    docker compose up -d
+    ```
+4. Database tasks
+    1. To launch the project database, enter the following command in the terminal.
+       ```
+       docker exec app php artisan migrate --force --seed
+        ```
+    2. Database display link address :
+       ```
+       http://localhost:8081/
+        ```
+    3. Login information to the database :
+       ```
+        Server   :  db 
+        Username :  next_admin
+        Password :  admin123456
+        ```
+
+---
+<span style="color:blue">
+In case of any changes in the project files, Docker will be built automatically. If you need to build manually, do the following with the following command:
+</span>
+
+```shell
+ docker compose build
+```
+
+
 ## Project setup with [Laravel Sail](https://laravel.com/docs/8.x/sail) for local dev environment :
 
 1. Docker is installed in your system. If it is not installed according to the document, install Docker
