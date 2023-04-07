@@ -3,6 +3,7 @@
 namespace Modules\Blog\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Modules\Blog\Repositories\PostRepository;
 use Modules\Blog\Repositories\VideoRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -15,6 +16,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(VideoRepository::class);
+        $this->app->bind(PostRepository::class);
     }
 
     /**

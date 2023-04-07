@@ -7,10 +7,18 @@ use Illuminate\Routing\Controller;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Http\Requests\CommentStoreRequest;
 use Modules\Blog\Http\Requests\PostStorerequest;
+use Modules\Blog\Repositories\PostRepository;
 use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends Controller
 {
+    private $postRepository;
+
+    public function __construct(PostRepository $postRepository)
+    {
+        $this->postRepository = $postRepository;
+    }
+
     /**
      * Store a newly created Post in storage.
      * @param Request $request
@@ -18,9 +26,9 @@ class PostController extends Controller
      */
     public function store(PostStorerequest $request): \Illuminate\Http\JsonResponse
     {
-        return apiResponse()->respond(
-            Post::create($request->validated()), Response::HTTP_CREATED
-        );
+        $post = $this->postRepository->store($request->validated());
+
+        return apiResponse()->respond($post, Response::HTTP_CREATED);
     }
 
     /**
@@ -40,9 +48,8 @@ class PostController extends Controller
      */
     public function storeComment(Post $post, CommentStoreRequest $request): \Illuminate\Http\JsonResponse
     {
-        return apiResponse()->respond(
-            $post->comments()->create($request->validated()),
-            Response::HTTP_CREATED
-        );
+        $comment = $this->postRepository->storeComment($post, $request->validated());
+
+        return apiResponse()->respond($comment, Response::HTTP_CREATED);
     }
 }
